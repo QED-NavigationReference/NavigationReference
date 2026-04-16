@@ -1,6 +1,6 @@
-# QED Navigation Reference
+# Navigation Reference
 
-This repository contains reference HTML templates and assets for the Queensland Department of Education navigation/header/footer patterns.
+This repository contains reference HTML templates and assets for the Department of Education navigation/header/footer patterns.
 
 ## Structure
 
