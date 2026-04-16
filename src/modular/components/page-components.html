@@ -1,0 +1,49 @@
+<!-- Component: Page Components Showcase -->
+<section id="component-showcase" class="doe-components" aria-labelledby="doe-components-title">
+  <div class="doe-shell-container">
+    <h2 id="doe-components-title">Page Components</h2>
+
+    <!-- Component: Alert banner -->
+    <div class="doe-alert" role="status" aria-live="polite">
+      <h3>Important update</h3>
+      <p>Template governance review is scheduled for 30 April. Update requests close two business days prior.</p>
+    </div>
+
+    <!-- Component: Feature cards -->
+    <div class="doe-card-grid" role="list">
+      <article class="doe-card" role="listitem" aria-labelledby="card-title-1">
+        <h3 id="card-title-1">Quick links panel</h3>
+        <p>Reusable card for high-priority actions with consistent spacing and heading hierarchy.</p>
+        <a href="#">Read component guidance</a>
+      </article>
+
+      <article class="doe-card" role="listitem" aria-labelledby="card-title-2">
+        <h3 id="card-title-2">News tile</h3>
+        <p>Supports short update snippets and structured links for announcements or media highlights.</p>
+        <a href="#">View news pattern</a>
+      </article>
+
+      <article class="doe-card" role="listitem" aria-labelledby="card-title-3">
+        <h3 id="card-title-3">Resource card</h3>
+        <p>Designed for documents, policy resources and tool references with clear call-to-action labels.</p>
+        <a href="#">Open resource example</a>
+      </article>
+    </div>
+
+    <!-- Component: Accessible accordion -->
+    <div class="doe-accordion-group" aria-label="Component FAQ">
+      <details>
+        <summary>How is this template modular?</summary>
+        <p>Each section is maintained in a separate partial file under <code>dept/modular/components</code>.</p>
+      </details>
+      <details>
+        <summary>How are dropdown menus accessible?</summary>
+        <p>Menus support keyboard controls, proper <code>aria-expanded</code> states and Escape-to-close behavior.</p>
+      </details>
+      <details>
+        <summary>Can we remove JavaScript entirely?</summary>
+        <p>Yes. The page still renders without JS; dropdowns simply remain collapsed and can be expanded in fallback builds.</p>
+      </details>
+    </div>
+  </div>
+</section>

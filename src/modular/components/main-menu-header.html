@@ -1,0 +1,68 @@
+<!-- Component: Main Menu Header -->
+<header class="doe-shell-header" role="banner">
+  <div class="doe-shell-header__utility">
+    <div class="doe-shell-container">
+      <nav aria-label="Utility links">
+        <ul class="doe-utility-links">
+          <li><a href="https://qed.qld.gov.au/">QLD Education website</a></li>
+          <li><a href="https://qed.qld.gov.au/contact-us">Contact us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="doe-shell-header__brand-row">
+    <div class="doe-shell-container doe-shell-header__brand-row-inner">
+      <a class="doe-shell-brand" href="https://qed.qld.gov.au/" aria-label="Department of Education home">
+        <img src="https://qed.qld.gov.au/SiteCollectionImages/qg-logo.jpg" alt="Queensland Government logo">
+        <span>Department of Education</span>
+      </a>
+      <button
+        type="button"
+        class="doe-main-nav-toggle"
+        aria-controls="doe-main-nav"
+        aria-expanded="false"
+      >
+        Menu
+      </button>
+    </div>
+  </div>
+
+  <!-- Accessible main navigation with hover + keyboard dropdown support -->
+  <nav class="doe-main-nav" id="doe-main-nav" aria-label="Main menu">
+    <div class="doe-shell-container">
+      <ul class="doe-main-nav__list">
+        <li><a href="#">Home</a></li>
+
+        <li class="doe-menu-item doe-menu-item--has-submenu">
+          <button type="button" aria-expanded="false" aria-controls="submenu-about">About us</button>
+          <ul id="submenu-about" class="doe-submenu" hidden>
+            <li><a href="#">Our department</a></li>
+            <li><a href="#">Strategy and performance</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </li>
+
+        <li class="doe-menu-item doe-menu-item--has-submenu">
+          <button type="button" aria-expanded="false" aria-controls="submenu-learning">Learning</button>
+          <ul id="submenu-learning" class="doe-submenu" hidden>
+            <li><a href="#">Schools and educators</a></li>
+            <li><a href="#">Students and families</a></li>
+            <li><a href="#">Programs and initiatives</a></li>
+          </ul>
+        </li>
+
+        <li class="doe-menu-item doe-menu-item--has-submenu">
+          <button type="button" aria-expanded="false" aria-controls="submenu-news">News and events</button>
+          <ul id="submenu-news" class="doe-submenu" hidden>
+            <li><a href="#">Media releases</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Public notices</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,46 @@
+<header class="doe-header" role="banner">
+  <div class="doe-header__topbar">
+    <div class="doe-container doe-header__topbar-inner">
+      <button
+        type="button"
+        class="doe-header__toggle"
+        data-header-toggle
+        aria-expanded="false"
+        aria-controls="doe-site-tools"
+      >
+        Site tools
+      </button>
+      <nav class="doe-header__tools" aria-label="Site tools" id="doe-site-tools" data-header-tools>
+        <ul class="doe-header__tools-list">
+          <li><a href="https://qed.qld.gov.au/">QLD Education website</a></li>
+          <li><a href="https://qed.qld.gov.au/contact-us">Contact us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="doe-header__main">
+    <div class="doe-container doe-header__main-inner">
+      <a class="doe-header__brand" href="https://qed.qld.gov.au/" aria-label="Department of Education home">
+        <img
+          class="doe-header__crest"
+          src="https://qed.qld.gov.au/SiteCollectionImages/qg-logo.jpg"
+          alt="Queensland Government logo"
+        >
+        <span class="doe-header__brand-text">Department of Education</span>
+      </a>
+
+      <form class="doe-header__search" role="search" action="https://qed.qld.gov.au/search" method="get">
+        <label for="doe-site-search" class="doe-visually-hidden">Search this site</label>
+        <input
+          id="doe-site-search"
+          type="search"
+          name="q"
+          placeholder="Search"
+          autocomplete="off"
+        >
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</header>
