@@ -1,0 +1,33 @@
+@use "../styles/abstracts/tokens";
+@use "../styles/doe-base";
+@use "../styles/base/reset";
+@use "../styles/base/typography";
+@use "../styles/base/layout";
+@use "../styles/base/buttons";
+@use "header/header";
+@use "nav/nav";
+@use "footer/footer";
+
+.reference-intro {
+  padding-block-start: clamp(3rem, 7vw, 5rem);
+}
+
+.reference-example-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--klpt-muted);
+  line-height: 1.7;
+}
+
+.reference-note {
+  border-left: 4px solid var(--doe-color-primary);
+  margin-block-start: 2rem;
+  padding: 1rem 1.25rem;
+  background: #f2f6fb;
+}
+
+.reference-note p {
+  margin: 0;
+}

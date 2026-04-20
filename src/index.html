@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Department of Education layout reference</title>
+    <link rel="stylesheet" href="assets/layout-reference.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="doe-header" role="banner">
+      <div class="doe-header__pre">
+        <div class="doe-header__container doe-header__pre-inner">
+          <nav class="doe-header__site-tools" aria-label="Site tools">
+            <ul class="doe-header__site-tools-list">
+              <li>
+                <a href="https://qed.qld.gov.au/"><i aria-hidden="true" class="fa-solid fa-globe"></i>&nbsp;QLD Education website</a>
+              </li>
+              <li>
+                <a href="https://qed.qld.gov.au/contact-us"><i aria-hidden="true" class="fa fa-phone"></i>&nbsp;Contact us</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="doe-header__masthead">
+        <div class="doe-header__container doe-header__masthead-inner">
+          <a class="doe-header__brand" href="https://qed.qld.gov.au/" aria-label="Department of Education">
+            <span class="doe-header__brand-mark" aria-hidden="true">
+              <img src="assets/img/queensland-coat-of-arms.svg" alt="" />
+            </span>
+            <span class="doe-header__brand-title">Department of Education</span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="doe-primary-nav" aria-label="Primary navigation">
+        <div class="doe-primary-nav__container">
+          <ul class="doe-primary-nav__list">
+            <li class="doe-primary-nav__item">
+              <a href="#" class="doe-primary-nav__link doe-primary-nav__link--active" aria-current="page">
+                <i class="fa-regular fa-house doe-primary-nav__home-icon" aria-hidden="true"></i>
+                <span class="doe-primary-nav__home-text">Home</span>
+              </a>
+            </li>
+
+            <li class="doe-primary-nav__item doe-primary-nav__item--has-menu">
+              <a href="#foundations" class="doe-primary-nav__link">Foundations</a>
+              <ul class="doe-primary-nav__submenu" aria-label="Foundations">
+                <li><a href="#quality-observations">Quality observations</a></li>
+                <li><a href="#analysing-data">Analysing data</a></li>
+              </ul>
+            </li>
+
+            <li class="doe-primary-nav__item doe-primary-nav__item--has-menu">
+              <a href="#learning-domains" class="doe-primary-nav__link">Learning domains</a>
+              <ul class="doe-primary-nav__submenu" aria-label="Learning domains">
+                <li><a href="#language-and-literacy">Language and literacy</a></li>
+                <li><a href="#executive-function">Executive function</a></li>
+                <li><a href="#social-and-emotional-learning">Social and emotional learning</a></li>
+                <li><a href="#physicality">Physicality</a></li>
+                <li><a href="#mathematics-and-numeracy">Mathematics and numeracy</a></li>
+              </ul>
+            </li>
+
+            <li class="doe-primary-nav__item">
+              <a href="#klpt-tool" class="doe-primary-nav__link">KLPT tool</a>
+            </li>
+
+            <li class="doe-primary-nav__item">
+              <a href="#about" class="doe-primary-nav__link">About</a>
+            </li>
+
+            <li class="doe-primary-nav__item">
+              <a href="#contact" class="doe-primary-nav__link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="page">
+      <section class="section section--cream reference-intro">
+        <div class="section__inner">
+          <p class="eyebrow">Layout reference</p>
+          <h1>Department header, navigation and footer</h1>
+          <p>
+            This page brings the current QED-KLPT layout components into a plain HTML reference so teams can review the
+            structure, spacing and content without running the Angular application.
+          </p>
+          <p>
+            The raw source templates and SCSS are stored under <code>src/_layout</code>. The compiled preview stylesheet
+            is served from <code>src/assets/layout-reference.css</code>.
+          </p>
+          <p>
+            <a class="button button--primary" href="#content-example">View sample content</a>
+          </p>
+        </div>
+      </section>
+
+      <section id="content-example" class="section section--white">
+        <div class="section__inner">
+          <div class="section__intro">
+            <p class="eyebrow">Sample body</p>
+            <h2>Learning progression content</h2>
+            <p>
+              Body content can sit between the shared header, navigation and footer while retaining the department
+              layout rhythm.
+            </p>
+          </div>
+
+          <div class="card-grid">
+            <article class="doe-card" id="foundations">
+              <h3>Foundations</h3>
+              <p>Use quality observations and purposeful analysis to understand learner strengths, needs and next steps.</p>
+            </article>
+
+            <article class="doe-card" id="learning-domains">
+              <h3>Learning domains</h3>
+              <p>Explore learning across language, executive function, social and emotional learning, physicality and numeracy.</p>
+            </article>
+
+            <article class="doe-card" id="klpt-tool">
+              <h3>KLPT tool</h3>
+              <p>Connect evidence, learner profiles and practical planning in a consistent department experience.</p>
+            </article>
+          </div>
+
+          <div class="reference-note">
+            <p>
+              This is placeholder content for layout review only. Replace links and examples with project-specific
+              content when using the components in a product.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--cream" id="about">
+        <div class="section__inner">
+          <p class="eyebrow">Content patterns</p>
+          <h2>Example section</h2>
+          <p>
+            Teams can use this page to check common page elements against the shared header, menu and footer.
+          </p>
+          <ul class="reference-example-list">
+            <li>Confirm the header brand area scales cleanly on small screens.</li>
+            <li>Check dropdown menu behaviour on desktop and stacked navigation on mobile.</li>
+            <li>Review footer links, social channels, acknowledgement text and contact call-to-action.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="site-footer" role="contentinfo">
+      <div class="site-footer__graphic" aria-hidden="true"></div>
+
+      <div class="site-footer__inner">
+        <h2 class="site-footer__title" id="siteTitle">Department of Education</h2>
+
+        <div class="site-footer__columns">
+          <section class="site-footer__contact" aria-labelledby="footer-contact-title">
+            <h3 id="footer-contact-title">Contact us</h3>
+            <p>Get in touch for enquiries, feedback, complaints and compliments.</p>
+            <p class="site-footer__phone">
+              <span aria-hidden="true">Phone:</span>
+              <a href="tel:137468">13 QGOV (13 74 68)</a>
+            </p>
+            <a class="site-footer__button" href="https://qed.qld.gov.au/contact-us">Contact us</a>
+          </section>
+
+          <nav class="site-footer__links" aria-label="Footer">
+            <ul>
+              <li><a href="https://qed.qld.gov.au/copyright-statement">Copyright</a></li>
+              <li><a href="https://qed.qld.gov.au/disclaimer/">Disclaimer</a></li>
+              <li><a href="https://qed.qld.gov.au/privacy/">Privacy</a></li>
+              <li><a href="https://qed.qld.gov.au/about-us/rti">Right to information</a></li>
+              <li><a href="https://www.qld.gov.au/help/accessibility/">Accessibility</a></li>
+              <li><a href="https://smartjobs.qld.gov.au/">Jobs in Queensland Government</a></li>
+              <li><a href="https://www.qld.gov.au/languages/">Other languages</a></li>
+              <li><a href="https://qed.qld.gov.au/site-map">Site map</a></li>
+            </ul>
+          </nav>
+
+          <nav class="site-footer__social" aria-labelledby="footer-social-title">
+            <h3 id="footer-social-title">Follow us</h3>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/QueenslandDepartmentofEducation">
+                  <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                  <span>Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/QLDEducation">
+                  <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                  <span>Twitter</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/QueenslandDepartmentofEducation">
+                  <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                  <span>YouTube</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/qldeducation/">
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                  <span>Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/queensland-department-of-education/">
+                  <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <section class="site-footer__acknowledgement" aria-label="Acknowledgement">
+            <p>
+              The Department of Education acknowledges the Traditional Owners of the lands, seas, skies and waterways
+              from across Queensland. We pay our respects to the Elders past, present and emerging, for they hold the
+              memories, the traditions, the culture and hopes of Aboriginal and Torres Strait Islander peoples across the
+              state.
+            </p>
+            <p class="site-footer__copyright">
+              © The State of Queensland (Department of Education) 2026
+            </p>
+            <a class="site-footer__qgov" href="https://www.qld.gov.au/">Queensland Government</a>
+          </section>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
