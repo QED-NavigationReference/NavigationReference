@@ -1,11 +1,10 @@
 :host {
   display: block;
-  --doe-primary-nav-rule-height: 8px;
-  --doe-primary-nav-background: #f5f5f5;
 }
 
 .doe-primary-nav {
-  // --doe-primary-nav-rule-height: 8px;
+  --doe-primary-nav-rule-height: 8px;
+  --doe-primary-nav-background: #f5f5f5;
 
   position: relative;
   overflow-x: clip;
