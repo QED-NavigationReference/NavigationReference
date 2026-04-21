@@ -1,0 +1,15 @@
+{
+  "name": "navigationreference",
+  "version": "1.0.0",
+  "description": "This repository contains reference HTML templates and assets for the Department of Education navigation/header/footer patterns.",
+  "scripts": {
+    "build": "sass src/_layout/layout-reference.scss dist/assets/layout-reference.css",
+    "build:watch": "sass --watch src/_layout/layout-reference.scss dist/assets/layout-reference.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
+}
