@@ -22,20 +22,32 @@
         class="doe-main-nav-toggle"
         aria-controls="doe-main-nav"
         aria-expanded="false"
+        aria-label="Toggle main menu"
       >
-        Menu
+        <span class="doe-main-nav-toggle__label">Menu</span>
+        <span class="doe-main-nav-toggle__icon" aria-hidden="true"><span></span></span>
       </button>
     </div>
   </div>
 
-  <!-- Accessible main navigation with hover + keyboard dropdown support -->
   <nav class="doe-main-nav" id="doe-main-nav" aria-label="Main menu">
     <div class="doe-shell-container">
       <ul class="doe-main-nav__list">
         <li><a href="#">Home</a></li>
 
         <li class="doe-menu-item doe-menu-item--has-submenu">
-          <button type="button" aria-expanded="false" aria-controls="submenu-about">About us</button>
+          <div class="doe-main-nav__item-row">
+            <a href="#">About us</a>
+            <button
+              type="button"
+              class="doe-main-nav__submenu-toggle"
+              aria-expanded="false"
+              aria-controls="submenu-about"
+              aria-label="Toggle About us submenu"
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
           <ul id="submenu-about" class="doe-submenu" hidden>
             <li><a href="#">Our department</a></li>
             <li><a href="#">Strategy and performance</a></li>
@@ -44,7 +56,18 @@
         </li>
 
         <li class="doe-menu-item doe-menu-item--has-submenu">
-          <button type="button" aria-expanded="false" aria-controls="submenu-learning">Learning</button>
+          <div class="doe-main-nav__item-row">
+            <a href="#">Learning</a>
+            <button
+              type="button"
+              class="doe-main-nav__submenu-toggle"
+              aria-expanded="false"
+              aria-controls="submenu-learning"
+              aria-label="Toggle Learning submenu"
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
           <ul id="submenu-learning" class="doe-submenu" hidden>
             <li><a href="#">Schools and educators</a></li>
             <li><a href="#">Students and families</a></li>
@@ -53,7 +76,18 @@
         </li>
 
         <li class="doe-menu-item doe-menu-item--has-submenu">
-          <button type="button" aria-expanded="false" aria-controls="submenu-news">News and events</button>
+          <div class="doe-main-nav__item-row">
+            <a href="#">News and events</a>
+            <button
+              type="button"
+              class="doe-main-nav__submenu-toggle"
+              aria-expanded="false"
+              aria-controls="submenu-news"
+              aria-label="Toggle News and events submenu"
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
           <ul id="submenu-news" class="doe-submenu" hidden>
             <li><a href="#">Media releases</a></li>
             <li><a href="#">Events</a></li>

@@ -1,71 +1,93 @@
 <nav class="doe-primary-nav" aria-label="Primary navigation">
   <div class="doe-primary-nav__container">
-    <ul class="doe-primary-nav__list">
+    <div class="doe-primary-nav__mobile-bar">
+      <button
+        type="button"
+        class="doe-primary-nav__toggle"
+        aria-controls="primary-navigation-list"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="doe-primary-nav__toggle-label">Menu</span>
+        <span class="doe-primary-nav__toggle-icon" aria-hidden="true">
+          <span></span>
+        </span>
+      </button>
+    </div>
+
+    <ul id="primary-navigation-list" class="doe-primary-nav__list">
       <li class="doe-primary-nav__item">
-        <a
-          routerLink="/"
-          routerLinkActive="doe-primary-nav__link--active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="doe-primary-nav__link"
-        >
+        <a href="/" class="doe-primary-nav__link doe-primary-nav__link--active" aria-current="page">
           <i class="fa-regular fa-house doe-primary-nav__home-icon" aria-hidden="true"></i>
           <span class="doe-primary-nav__home-text">Home</span>
         </a>
       </li>
 
-      <li class="doe-primary-nav__item doe-primary-nav__item--has-menu" routerLinkActive="doe-primary-nav__item--active">
-        <a routerLink="/services" class="doe-primary-nav__link">
-          Services
-        </a>
-        <ul class="doe-primary-nav__submenu" aria-label="Services">
+      <li class="doe-primary-nav__item doe-primary-nav__item--has-menu">
+        <div class="doe-primary-nav__item-row">
+          <a href="/services" class="doe-primary-nav__link">Services</a>
+          <button
+            type="button"
+            class="doe-primary-nav__submenu-toggle"
+            aria-expanded="false"
+            aria-controls="services-submenu"
+            aria-label="Toggle Services submenu"
+          >
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <ul id="services-submenu" class="doe-primary-nav__submenu" aria-label="Services">
           <li>
-            <a routerLink="/services/schools" (click)="closeMenu($event)">Schools</a>
+            <a href="/services/schools">Schools</a>
           </li>
           <li>
-            <a routerLink="/services/early-childhood" (click)="closeMenu($event)">Early childhood</a>
+            <a href="/services/early-childhood">Early childhood</a>
           </li>
           <li>
-            <a routerLink="/services/support" (click)="closeMenu($event)">Support services</a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="doe-primary-nav__item doe-primary-nav__item--has-menu" routerLinkActive="doe-primary-nav__item--active">
-        <a routerLink="/resources" class="doe-primary-nav__link">
-          Resources
-        </a>
-        <ul class="doe-primary-nav__submenu" aria-label="Resources">
-          <li>
-            <a routerLink="/resources/policies" (click)="closeMenu($event)">Policies</a>
-          </li>
-          <li>
-            <a routerLink="/resources/forms" (click)="closeMenu($event)">Forms</a>
-          </li>
-          <li>
-            <a routerLink="/resources/publications" (click)="closeMenu($event)">Publications</a>
-          </li>
-          <li>
-            <a routerLink="/resources/contacts" (click)="closeMenu($event)">Contacts</a>
+            <a href="/services/support">Support services</a>
           </li>
         </ul>
       </li>
 
-      <li class="doe-primary-nav__item">
-        <a routerLink="/news" routerLinkActive="doe-primary-nav__link--active" class="doe-primary-nav__link">
-          News
-        </a>
+      <li class="doe-primary-nav__item doe-primary-nav__item--has-menu">
+        <div class="doe-primary-nav__item-row">
+          <a href="/resources" class="doe-primary-nav__link">Resources</a>
+          <button
+            type="button"
+            class="doe-primary-nav__submenu-toggle"
+            aria-expanded="false"
+            aria-controls="resources-submenu"
+            aria-label="Toggle Resources submenu"
+          >
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <ul id="resources-submenu" class="doe-primary-nav__submenu" aria-label="Resources">
+          <li>
+            <a href="/resources/policies">Policies</a>
+          </li>
+          <li>
+            <a href="/resources/forms">Forms</a>
+          </li>
+          <li>
+            <a href="/resources/publications">Publications</a>
+          </li>
+          <li>
+            <a href="/resources/contacts">Contacts</a>
+          </li>
+        </ul>
       </li>
 
       <li class="doe-primary-nav__item">
-        <a routerLink="/about" routerLinkActive="doe-primary-nav__link--active" class="doe-primary-nav__link">
-          About
-        </a>
+        <a href="/news" class="doe-primary-nav__link">News</a>
       </li>
 
       <li class="doe-primary-nav__item">
-        <a routerLink="/contact" routerLinkActive="doe-primary-nav__link--active" class="doe-primary-nav__link">
-          Contact
-        </a>
+        <a href="/about" class="doe-primary-nav__link">About</a>
+      </li>
+
+      <li class="doe-primary-nav__item">
+        <a href="/contact" class="doe-primary-nav__link">Contact</a>
       </li>
     </ul>
   </div>

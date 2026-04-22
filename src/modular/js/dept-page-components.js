@@ -1,96 +1,128 @@
 /*
   Department of Education - Main Menu behavior
   Supports:
-  - click/tap open
-  - hover open (desktop)
-  - keyboard: Enter/Space to open, Escape to close
-  - outside click closes open menus
+  - animated mobile menu toggle
+  - mobile submenu expand/collapse
+  - desktop hover/focus open behavior
+  - outside click and Escape close
 */
 (function () {
   var nav = document.getElementById('doe-main-nav');
   var toggle = document.querySelector('.doe-main-nav-toggle');
   if (!nav) return;
 
-  var menuItems = Array.prototype.slice.call(
-    nav.querySelectorAll('.doe-menu-item--has-submenu')
+  var submenuToggles = Array.prototype.slice.call(
+    nav.querySelectorAll('.doe-main-nav__submenu-toggle')
   );
 
-  function setOpen(item, open) {
-    var button = item.querySelector('button');
-    var submenu = item.querySelector('.doe-submenu');
-    if (!button || !submenu) return;
+  function isMobile() {
+    return window.matchMedia('(max-width: 920px)').matches;
+  }
+
+  function setMenuOpen(open) {
+    if (!toggle) return;
+    nav.classList.toggle('is-open', open);
+    toggle.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  function setSubmenuOpen(button, open) {
+    var submenuId = button.getAttribute('aria-controls');
+    var submenu = submenuId ? document.getElementById(submenuId) : null;
+    if (!submenu) return;
+
+    button.classList.toggle('is-open', open);
     button.setAttribute('aria-expanded', open ? 'true' : 'false');
+    submenu.classList.toggle('is-open', open);
     submenu.hidden = !open;
   }
 
-  function closeAll(exceptItem) {
-    menuItems.forEach(function (item) {
-      if (exceptItem && item === exceptItem) return;
-      setOpen(item, false);
+  function closeSubmenus(exceptButton) {
+    submenuToggles.forEach(function (button) {
+      setSubmenuOpen(button, Boolean(exceptButton) && button === exceptButton);
     });
   }
 
-  menuItems.forEach(function (item) {
-    var button = item.querySelector('button');
-    var submenu = item.querySelector('.doe-submenu');
-    if (!button || !submenu) return;
+  function closeAll() {
+    closeSubmenus(null);
+    if (isMobile()) {
+      setMenuOpen(false);
+    }
+  }
 
-    // Ensure deterministic initial state for assistive tech.
-    setOpen(item, false);
+  submenuToggles.forEach(function (button) {
+    var menuItem = button.closest('.doe-menu-item');
+    setSubmenuOpen(button, false);
 
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
       var isOpen = button.getAttribute('aria-expanded') === 'true';
-      closeAll(item);
-      setOpen(item, !isOpen);
+      closeSubmenus(isOpen ? null : button);
     });
 
-    button.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        setOpen(item, false);
-        button.focus();
+    if (!menuItem) return;
+
+    menuItem.addEventListener('mouseenter', function () {
+      if (!isMobile()) {
+        closeSubmenus(button);
       }
     });
 
-    item.addEventListener('mouseenter', function () {
-      closeAll(item);
-      setOpen(item, true);
+    menuItem.addEventListener('mouseleave', function () {
+      if (!isMobile()) {
+        setSubmenuOpen(button, false);
+      }
     });
 
-    item.addEventListener('mouseleave', function () {
-      setOpen(item, false);
+    menuItem.addEventListener('focusin', function () {
+      if (!isMobile()) {
+        closeSubmenus(button);
+      }
     });
 
-    item.addEventListener('focusin', function () {
-      closeAll(item);
-      setOpen(item, true);
+    menuItem.addEventListener('focusout', function () {
+      if (!isMobile()) {
+        window.setTimeout(function () {
+          if (!menuItem.contains(document.activeElement)) {
+            setSubmenuOpen(button, false);
+          }
+        }, 0);
+      }
     });
-
-    item.addEventListener('focusout', function () {
-      setTimeout(function () {
-        if (!item.contains(document.activeElement)) {
-          setOpen(item, false);
-        }
-      }, 0);
-    });
-  });
-
-  document.addEventListener('click', function (e) {
-    if (!nav.contains(e.target)) {
-      closeAll();
-    }
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      closeAll();
-    }
   });
 
   if (toggle) {
     toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (!open) closeAll();
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      setMenuOpen(!isOpen);
+      if (isOpen) {
+        closeSubmenus(null);
+      }
     });
   }
+
+  Array.prototype.slice.call(nav.querySelectorAll('a')).forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (isMobile()) {
+        closeAll();
+      }
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!nav.contains(event.target) && (!toggle || !toggle.contains(event.target))) {
+      closeAll();
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeAll();
+      if (toggle) {
+        toggle.focus();
+      }
+    }
+  });
 })();
