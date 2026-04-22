@@ -42,48 +42,85 @@
       </div>
 
       <nav class="doe-primary-nav" aria-label="Primary navigation">
-        <div class="doe-primary-nav__container">
-          <ul class="doe-primary-nav__list">
-            <li class="doe-primary-nav__item">
-              <a href="#" class="doe-primary-nav__link doe-primary-nav__link--active" aria-current="page">
-                <i class="fa-regular fa-house doe-primary-nav__home-icon" aria-hidden="true"></i>
-                <span class="doe-primary-nav__home-text">Home</span>
-              </a>
-            </li>
+  <div class="doe-primary-nav__container">
+    <div class="doe-primary-nav__mobile-bar">
+      <button
+        type="button"
+        class="doe-primary-nav__toggle"
+        aria-controls="primary-navigation-list"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="doe-primary-nav__toggle-label">Menu</span>
+        <span class="doe-primary-nav__toggle-icon" aria-hidden="true">
+          <span></span>
+        </span>
+      </button>
+    </div>
 
-            <li class="doe-primary-nav__item doe-primary-nav__item--has-menu">
-              <a href="#services" class="doe-primary-nav__link">Services</a>
-              <ul class="doe-primary-nav__submenu" aria-label="Services">
-                <li><a href="#schools">Schools</a></li>
-                <li><a href="#early-childhood">Early childhood</a></li>
-                <li><a href="#support-services">Support services</a></li>
-              </ul>
-            </li>
+    <ul id="primary-navigation-list" class="doe-primary-nav__list">
+      <li class="doe-primary-nav__item">
+        <a href="#" class="doe-primary-nav__link doe-primary-nav__link--active" aria-current="page">
+          <i class="fa-regular fa-house doe-primary-nav__home-icon" aria-hidden="true"></i>
+          <span class="doe-primary-nav__home-text">Home</span>
+        </a>
+      </li>
 
-            <li class="doe-primary-nav__item doe-primary-nav__item--has-menu">
-              <a href="#resources" class="doe-primary-nav__link">Resources</a>
-              <ul class="doe-primary-nav__submenu" aria-label="Resources">
-                <li><a href="#policies">Policies</a></li>
-                <li><a href="#forms">Forms</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contacts">Contacts</a></li>
-              </ul>
-            </li>
-
-            <li class="doe-primary-nav__item">
-              <a href="#news" class="doe-primary-nav__link">News</a>
-            </li>
-
-            <li class="doe-primary-nav__item">
-              <a href="#about" class="doe-primary-nav__link">About</a>
-            </li>
-
-            <li class="doe-primary-nav__item">
-              <a href="#contact" class="doe-primary-nav__link">Contact</a>
-            </li>
-          </ul>
+      <li class="doe-primary-nav__item doe-primary-nav__item--has-menu">
+        <div class="doe-primary-nav__item-row">
+          <a href="#services" class="doe-primary-nav__link">Services</a>
+          <button
+            type="button"
+            class="doe-primary-nav__submenu-toggle"
+            aria-expanded="false"
+            aria-controls="services-submenu"
+            aria-label="Toggle Services submenu"
+          >
+            <span aria-hidden="true"></span>
+          </button>
         </div>
-      </nav>
+        <ul id="services-submenu" class="doe-primary-nav__submenu" aria-label="Services">
+          <li><a href="#schools">Schools</a></li>
+          <li><a href="#early-childhood">Early childhood</a></li>
+          <li><a href="#support-services">Support services</a></li>
+        </ul>
+      </li>
+
+      <li class="doe-primary-nav__item doe-primary-nav__item--has-menu">
+        <div class="doe-primary-nav__item-row">
+          <a href="#resources" class="doe-primary-nav__link">Resources</a>
+          <button
+            type="button"
+            class="doe-primary-nav__submenu-toggle"
+            aria-expanded="false"
+            aria-controls="resources-submenu"
+            aria-label="Toggle Resources submenu"
+          >
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <ul id="resources-submenu" class="doe-primary-nav__submenu" aria-label="Resources">
+          <li><a href="#policies">Policies</a></li>
+          <li><a href="#forms">Forms</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+        </ul>
+      </li>
+
+      <li class="doe-primary-nav__item">
+        <a href="#news" class="doe-primary-nav__link">News</a>
+      </li>
+
+      <li class="doe-primary-nav__item">
+        <a href="#about" class="doe-primary-nav__link">About</a>
+      </li>
+
+      <li class="doe-primary-nav__item">
+        <a href="#contact" class="doe-primary-nav__link">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
     </header>
 
     <main id="main-content" class="page">
@@ -239,5 +276,92 @@
         </div>
       </div>
     </footer>
+      <script>
+      (function () {
+        var nav = document.querySelector('.doe-primary-nav');
+        if (!nav) {
+          return;
+        }
+
+        var toggle = nav.querySelector('.doe-primary-nav__toggle');
+        var list = nav.querySelector('.doe-primary-nav__list');
+        var submenuToggles = Array.prototype.slice.call(
+          nav.querySelectorAll('.doe-primary-nav__submenu-toggle')
+        );
+
+        function setMenuOpen(open) {
+          if (!toggle || !list) {
+            return;
+          }
+
+          toggle.classList.toggle('doe-primary-nav__toggle--open', open);
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          list.classList.toggle('doe-primary-nav__list--open', open);
+        }
+
+        function closeSubmenus(exceptButton) {
+          submenuToggles.forEach(function (button) {
+            var submenuId = button.getAttribute('aria-controls');
+            var submenu = submenuId ? document.getElementById(submenuId) : null;
+            var isOpen = Boolean(exceptButton) && button === exceptButton;
+
+            button.classList.toggle('doe-primary-nav__submenu-toggle--open', isOpen);
+            button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+            if (submenu) {
+              submenu.classList.toggle('doe-primary-nav__submenu--open', isOpen);
+            }
+          });
+        }
+
+        function closeAll() {
+          setMenuOpen(false);
+          closeSubmenus(null);
+        }
+
+        if (toggle) {
+          toggle.addEventListener('click', function () {
+            var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+            setMenuOpen(!isOpen);
+            if (isOpen) {
+              closeSubmenus(null);
+            }
+          });
+        }
+
+        submenuToggles.forEach(function (button) {
+          button.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            var isOpen = button.getAttribute('aria-expanded') === 'true';
+            closeSubmenus(isOpen ? null : button);
+          });
+        });
+
+        Array.prototype.slice.call(nav.querySelectorAll('a')).forEach(function (link) {
+          link.addEventListener('click', function () {
+            if (window.matchMedia('(max-width: 48rem)').matches) {
+              closeAll();
+            }
+          });
+        });
+
+        document.addEventListener('click', function (event) {
+          if (!nav.contains(event.target)) {
+            closeAll();
+          }
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') {
+            closeAll();
+            if (toggle) {
+              toggle.focus();
+            }
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
