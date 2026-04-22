@@ -233,7 +233,9 @@ summary:focus {
 .doe-main-nav__list > li > a:hover,
 .doe-main-nav__list > li > a:focus,
 .doe-main-nav__item-row > a:hover,
-.doe-main-nav__item-row > a:focus {
+.doe-main-nav__item-row > a:focus,
+.doe-menu-item--active > .doe-main-nav__item-row > a,
+.doe-menu-item--active > a {
   background: #f2f6fb;
 }
 
