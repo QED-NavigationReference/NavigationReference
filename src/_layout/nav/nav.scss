@@ -1,6 +1,11 @@
-.doe-primary-nav {
+:host {
+  display: block;
   --doe-primary-nav-rule-height: 8px;
   --doe-primary-nav-background: #f5f5f5;
+}
+
+.doe-primary-nav {
+  // --doe-primary-nav-rule-height: 8px;
 
   position: relative;
   overflow-x: clip;
@@ -136,6 +141,9 @@
 .doe-primary-nav__link:focus-visible {
   background: #e6e6e6;
   color: var(--doe-color-primary-dark);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .doe-primary-nav__link:hover::after,
@@ -166,8 +174,8 @@
     transform 220ms ease;
 }
 
-.doe-primary-nav__item:hover .doe-primary-nav__submenu:not(.doe-primary-nav__submenu--open),
-.doe-primary-nav__item:focus-within .doe-primary-nav__submenu:not(.doe-primary-nav__submenu--open) {
+.doe-primary-nav__item:hover .doe-primary-nav__submenu,
+.doe-primary-nav__item:focus-within .doe-primary-nav__submenu {
   max-height: 24rem;
   opacity: 1;
   pointer-events: auto;
@@ -184,7 +192,10 @@
 .doe-primary-nav__submenu a:hover,
 .doe-primary-nav__submenu a:focus-visible {
   background: #f2f6fb;
-  color: var(--doe-color-primary-dark);
+  color: var(--doe-color-text);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 @media (max-width: 48rem) {
@@ -345,11 +356,6 @@
     pointer-events: auto;
     transform: none;
     transition: max-height 240ms ease;
-  }
-
-  .doe-primary-nav__item:hover .doe-primary-nav__submenu:not(.doe-primary-nav__submenu--open),
-  .doe-primary-nav__item:focus-within .doe-primary-nav__submenu:not(.doe-primary-nav__submenu--open) {
-    max-height: 0;
   }
 
   .doe-primary-nav__item:hover .doe-primary-nav__submenu:not(.doe-primary-nav__submenu--open),
